@@ -1,6 +1,6 @@
 const BlogModel = require("../models/blogModel")
 const authorModel = require("../models/authorModel");
-/////////////////////////////////////POST /blogs///////////////////////////////////////////////////////////
+
 const createBlog = async function(req, res) {
         try {
             const details = req.body
@@ -19,8 +19,8 @@ const createBlog = async function(req, res) {
             res.status(500).send({ status: false, msg: err.message });
         }
     }
-    //////////////////////////////////////////////GET /blogs/////////////////////////////////////////////
-const getBlog = async function(req, res) {
+
+    const getBlog = async function(req, res) {
         try {
             let q = req.query;
             let filter = {
@@ -44,8 +44,8 @@ const getBlog = async function(req, res) {
             res.status(500).send({ status: false, Error: err.message })
         }
     }
-    ///////////////////////////////////////blogs/:blogId/////////////////////////////////////////
-const updateBlog = async function(req, res) {
+
+    const updateBlog = async function(req, res) {
         try {
             let data = req.body
             let blog_Id = req.params.blogId
@@ -75,8 +75,8 @@ const updateBlog = async function(req, res) {
             res.status(500).send({ error: err.message })
         }
     }
-    ///////////////////////////////////////blogs/:blogId//////////////////////////////////
-const deleteBlog = async function(req, res) {
+
+    const deleteBlog = async function(req, res) {
         try {
             let blog_Id = req.params.blogId;
             let authorFormToken = req.authorId
@@ -95,20 +95,8 @@ const deleteBlog = async function(req, res) {
             res.status(500).send({ msg: "error", error: err.message })
         }
     }
-    // const BlogDelete = async function(req, res) {
-    //     // try {
-    //     //     let authorId = req.query.authorId
-    //     //     let validation = await authorModel.findById(authorId)
-    //     //     if (!validation) return res.status(404).send({ status: false, msg: "Enter valid authorId" })
-    //     //     let q = req.query
-    //     //     let deleteData = await BlogModel.deleteOne({ authorId: authorId, category: q.category, subcategory: q.subcategory, tags: q.tags, isPublished: false, new: true })
-    //     //     res.status(200).send({ status: true, data: deleteData })
-    //     // } catch (err) {
-    //     //     res.status(404).send({ status: false, Error: err.message })
-    //     // }
 
-// }
-////////////////////////////////////blogs?queryParams/////////////////////////////////////////
+   
 const deleteParams = async function(req, res) {
     try {
         let data = req.query;
@@ -124,10 +112,8 @@ const deleteParams = async function(req, res) {
         res.status(200).send({
             status: true,
             message: "deleted successfully",
-            msg: deleteByQuery
         })
     } catch (err) {
-
         res.status(500).send({ error: err.message })
     }
 }

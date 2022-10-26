@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const authorSchema = new mongoose.Schema({
     fname: {
         type: String,
@@ -26,5 +27,6 @@ const authorSchema = new mongoose.Schema({
         trim: true
     }
 
-})
+}, { timestamps: true })
+
 module.exports = mongoose.model('Author', authorSchema)

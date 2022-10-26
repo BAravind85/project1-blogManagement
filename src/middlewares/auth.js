@@ -10,19 +10,8 @@ const authentication = function(req, res, next) {
     } catch (err) {
         res.status(500).send({ status: false, msg: err.message })
     }
-
     next()
 }
 
-</*Here I'm implementing this authorisation in the API functions itself.
-    const authorisation = function(req, res, next) {
-    let token = req.headers[`x-api-key`];
-    let decodedToken = jwt.verify(token, "functionUp-radon");
-    let userLoggedIn = decodedToken.userId;
-    console.log(decodedToken)
-        // let userToBeModified = req.body.authorId || req.params.authorId || req.query.authorId || req.headers.authorId;
-        // if (userLoggedIn !== userToBeModified) return res.status(403).send({ status: false, msg: "You are not authorized to do this" });
-    next();
-}
-*/>
-module.exports = { authentication }
+module.exports ={authentication}
+
